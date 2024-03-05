@@ -7,6 +7,7 @@ import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $_layout from "./routes/_layout.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
+import * as $children from "./routes/children.tsx";
 import * as $countdown from "./routes/countdown.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $html from "./routes/html.tsx";
@@ -18,6 +19,8 @@ import * as $sub_special from "./routes/sub/special.tsx";
 import * as $subscribe from "./routes/subscribe.tsx";
 import * as $Countdown from "./islands/Countdown.tsx";
 import * as $Counter from "./islands/Counter.tsx";
+import * as $MyIsland from "./islands/MyIsland.tsx";
+import * as $NestedIsland from "./islands/NestedIsland.tsx";
 import { type Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -27,6 +30,7 @@ const manifest = {
     "./routes/_app.tsx": $_app,
     "./routes/_layout.tsx": $_layout,
     "./routes/api/joke.ts": $api_joke,
+    "./routes/children.tsx": $children,
     "./routes/countdown.tsx": $countdown,
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/html.tsx": $html,
@@ -40,6 +44,8 @@ const manifest = {
   islands: {
     "./islands/Countdown.tsx": $Countdown,
     "./islands/Counter.tsx": $Counter,
+    "./islands/MyIsland.tsx": $MyIsland,
+    "./islands/NestedIsland.tsx": $NestedIsland,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;
