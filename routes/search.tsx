@@ -5,6 +5,7 @@ const NAMES = ["Alice", "Bob", "Charlie", "Dave", "Eve", "Frank"];
 type Data = {
   results: string[];
   query: string;
+  isLoggedIn: boolean;
 };
 
 export const config: LayoutConfig = {
@@ -16,12 +17,14 @@ export const handler: Handlers<Data> = {
     const url = new URL(req.url);
     const query = url.searchParams.get("query") ?? "";
     const results = NAMES.filter((name) => name.toLowerCase().includes(query));
-    return ctx.render({ results, query });
+    const isLoggedIn = ctx.state.isLoggedIn as boolean;
+    return ctx.render({ results, query, isLoggedIn });
   },
 };
 
 export default function Page({ data }: PageProps<Data>) {
-  const { results, query } = data;
+  const { results, query, isLoggedIn } = data;
+  console.log(isLoggedIn);
   return (
     <div>
       <form>
